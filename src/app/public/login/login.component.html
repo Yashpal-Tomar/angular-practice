@@ -1,0 +1,32 @@
+<div class="main">
+  <img
+    src="../../../assets/login-images/login-background-images.jpg"
+    style="position: absolute; width: 100%"
+  />
+  <fieldset class="fieldset">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <h3>Login</h3>
+
+      <label>User name</label><br />
+
+      <input
+        type="email"
+        placeholder="enter your username"
+        formControlName="user"
+      />
+      <br /><br />
+      <label>Password</label><br />
+      <input
+        type="password"
+        placeholder="enter your password"
+        formControlName="password"
+      />
+      <br />
+
+      <br /><br />
+
+      <button type="submit">Login</button> &nbsp; &nbsp; &nbsp;
+      <button>Signup</button>
+    </form>
+  </fieldset>
+</div>
