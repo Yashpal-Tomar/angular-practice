@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from  '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +9,31 @@ import {FormControl, FormGroup} from  '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm:any;
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.createLoginForm();
   }
 
-  loginForm= new FormGroup({
-   user: new FormControl(''),
-   password: new FormControl(''),
+createLoginForm(){
+  this.loginForm= new FormGroup({
+    user: new FormControl(''),
+    password: new FormControl(''),
+   })
+}
+  
+  onSubmit() {
+   localStorage.setItem('loginData', JSON.stringify(this.loginForm.value))
+  }
 
 
-  })
-  loginUser() {
-
-    console.warn(this.loginForm.value);
+  
+  navigateToSignup() {
+   this.router.navigateByUrl('/signup');
   }
 
 }

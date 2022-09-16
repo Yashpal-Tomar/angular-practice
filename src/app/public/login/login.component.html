@@ -1,11 +1,11 @@
-<div class="main">
+<div>
   <img
     src="../../../assets/login-images/login-background-images.jpg"
-    style="position: absolute; width: 100%"
+    style="position: absolute; width: 98%"
   />
   <fieldset class="fieldset">
-    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-      <h3>Login</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h3 style="font-size: 22px; margin-left: 62px">LOGIN</h3>
 
       <label>User name</label><br />
 
@@ -22,11 +22,17 @@
         formControlName="password"
       />
       <br />
+      <br />
+      <button type="submit" class="login-btn">LOGIN</button><br />
 
-      <br /><br />
-
-      <button type="submit">Login</button> &nbsp; &nbsp; &nbsp;
-      <button>Signup</button>
+      <p style="font-size: 11px; margin-left: 89px">
+        Not a member?
+        <span
+          (click)="navigateToSignup()"
+          style="border-bottom: 1px solid; font-size: 12px"
+          >signup now</span
+        >
+      </p>
     </form>
   </fieldset>
 </div>
